@@ -40,7 +40,7 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
-            sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/cicd-app:latest
-            sudo docker stop cicd-app || true
-            sudo docker rm cicd-app || true
-            sudo docker run -d --name cicd-app -p 80:3000 ${{ secrets.DOCKERHUB_USERNAME }}/cicd-app:latest
+            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/cicd-app:latest
+            docker stop cicd-app || true
+            docker rm cicd-app || true
+            docker run -d --name cicd-app -p 80:3000 ${{ secrets.DOCKERHUB_USERNAME }}/cicd-app:latest
